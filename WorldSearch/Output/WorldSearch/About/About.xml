@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>World Search</name>
+  <author>scuba156</author>
+  <targetVersion>1.0.0</targetVersion>
+  <description>
+Adds a searchbox to the world map allowing you to search for colonies, caravans and other world objects by name.
+
+Tested working with RimWorld 1.0.1950 rev659
+
+Version: 0.1
+  </description>
+</ModMetaData>
