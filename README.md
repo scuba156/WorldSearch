@@ -8,4 +8,8 @@
 </p>
 
 ## Description
-Adds a searchbox to the world map allowing you to search for colonies, caravans and other world objects by name.
+World Search is a RimWorld mod that adds a searchbox to the world map allowing you to search for colonies, caravans and other world objects by name.
+
+#### Powered By:
+
+[![Harmony Logo](https://s24.postimg.cc/58bl1rz39/logo.png "Harmony")](https://github.com/pardeike/Harmony)
