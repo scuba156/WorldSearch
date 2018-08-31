@@ -37,7 +37,7 @@ namespace WorldSearch {
         }
 
         private static void DrawResults() {
-            if (SearchResults != null) {
+            if (SearchResults != null && SearchResults.Count > 0) {
                 float y = YPos + 30f;
                 Rect outer = new Rect(XPos, y, 250f, UI.screenHeight - 240f);
                 Rect inner = outer.ContractedBy(4f);
@@ -48,7 +48,7 @@ namespace WorldSearch {
                 Widgets.BeginScrollView(outer, ref ScrollbarPosition, inner, true);
                 listing.Begin(inner);
                 foreach (var item in from i in SearchResults orderby i.Label select i) {
-                    if (listing.ButtonText(string.Format("{0} [{1}]", item.Label, item.Faction.Name).Truncate(inner.width, TruncatedNamesCache), null, false)) {
+                    if (listing.ButtonText(string.Format("{0} [{1}]", item?.Label, item?.Faction?.Name).Truncate(inner.width, TruncatedNamesCache), null, false)) {
                         CameraJumper.TryJumpAndSelect(item);
                     }
                 }
@@ -64,7 +64,7 @@ namespace WorldSearch {
                 SearchResults.Clear();
             } else {
                 var searchStringLowered = SearchString.ToLower();
-                SearchResults = Current.Game.World.worldObjects.AllWorldObjects.FindAll(obj => obj.Label.ReplaceDiacritics().ToLower().Contains(searchStringLowered) || obj.Faction.Name.ReplaceDiacritics().ToLower().Contains(searchStringLowered));
+                SearchResults = Current.Game.World.worldObjects.AllWorldObjects.FindAll(obj => !obj.Label.NullOrEmpty() && (obj.Label.ReplaceDiacritics().ToLower().Contains(searchStringLowered) || obj.Faction != null && ( obj.Faction.Name.ReplaceDiacritics().ToLower().Contains(searchStringLowered))));
             }
         }
     }
