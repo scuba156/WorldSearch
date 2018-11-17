@@ -1,4 +1,4 @@
-﻿using RimToolsUI.ExtraWidgets;
+using RimToolsUI.ExtraWidgets;
 using RimWorld.Planet;
 using System.Collections.Generic;
 using System.Linq;
