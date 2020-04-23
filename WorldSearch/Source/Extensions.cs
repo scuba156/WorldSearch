@@ -3,9 +3,7 @@ using System.Linq;
 using System.Text;
 
 namespace WorldSearch {
-
     public static class Extensions {
-
         public static string ReplaceDiacritics(this string text) {
             string decomposed = text.Normalize(NormalizationForm.FormD);
             char[] filtered = decomposed

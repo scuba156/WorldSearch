@@ -1,14 +1,13 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using System.Reflection;
 using Verse;
 
 namespace WorldSearch {
-
     public class Main : Mod {
-        public HarmonyInstance HarmonyInst = HarmonyInstance.Create("com.scuba156.WorldSearch");
-
         public Main(ModContentPack content) : base(content) {
-            HarmonyInst.PatchAll(Assembly.GetExecutingAssembly());
+            var harmony = new Harmony("com.scuba156.WorldSearch");
+
+            harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
     }
 }

@@ -6,7 +6,6 @@ using UnityEngine;
 using Verse;
 
 namespace WorldSearch {
-
     // TODO: get input events and remove focus
     internal static class WorldSearchBar {
         private static Vector2 ScrollbarPosition;
@@ -64,7 +63,11 @@ namespace WorldSearch {
                 SearchResults.Clear();
             } else {
                 var searchStringLowered = SearchString.ToLower();
-                SearchResults = Current.Game.World.worldObjects.AllWorldObjects.FindAll(obj => !obj.Label.NullOrEmpty() && (obj.Label.ReplaceDiacritics().ToLower().Contains(searchStringLowered) || obj.Faction != null && ( obj.Faction.Name.ReplaceDiacritics().ToLower().Contains(searchStringLowered))));
+                SearchResults = Current.Game.World.worldObjects.AllWorldObjects.FindAll(
+                    obj => !obj.Label.NullOrEmpty() &&
+                        (obj.Label.ReplaceDiacritics().ToLower().Contains(searchStringLowered) ||
+                        obj.Faction != null &&
+                        (obj.Faction.Name.ReplaceDiacritics().ToLower().Contains(searchStringLowered))));
             }
         }
     }
